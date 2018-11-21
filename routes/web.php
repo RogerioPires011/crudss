@@ -10,11 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('/usuarios','UsuariosController@index');
+    Route::get('usuarios','UsuariosController@index');
 
     Route::get('/clientes','ClientesController@index');
-
     Route::get('/clientes/novo','ClientesController@novo');
+    Route::get('/clientes/salvar','ClientesController@salvar');
 
     Route:: group(['middlware'=>'web'], function () {
 
