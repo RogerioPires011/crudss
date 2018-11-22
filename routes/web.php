@@ -10,20 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('usuarios','UsuariosController@index');
 
-    Route::get('/clientes','ClientesController@index');
-    Route::get('/clientes/novo','ClientesController@novo');
-    Route::get('/clientes/salvar','ClientesController@salvar');
+Route::get('usuarios', 'UsuariosController@index');
 
-    Route:: group(['middlware'=>'web'], function () {
+Route:: group(['middlware' => 'web'], function () {
 
-        Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
 
-        Route::auth();
+    Route::auth();
 
-        Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'HomeController@index');
 
+
+    Route::get('clientes', 'ClientesController@index');
+    Route::get('clientes/novo', 'ClientesController@novo');
+    Route::post('clientes/salvar', 'ClientesController@salvar');
 
 
 });

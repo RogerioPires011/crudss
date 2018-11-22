@@ -11,10 +11,8 @@
                     </div>
 
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
+                        @if (Session::has('mensagem_sucesso'))
+                            <div class="alert alert-success">{{ Session::get('mensagem_sucesso') }}</div>
                         @endif
                         {!! Form::open(['url'=>'clientes/salvar']) !!}
 
