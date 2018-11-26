@@ -11,6 +11,10 @@
                     </div>
 
                     <div class="card-body">
+                        @if (Session::has('mensagem_sucesso'))
+                            <div class="alert alert-success">{{ Session::get('mensagem_sucesso') }}</div>
+                        @endif
+
                         <table class="table">
                             <th>Nome</th>
                             <th>Endereço</th>
@@ -23,8 +27,10 @@
                                     <td>{{$cliente->endereco}}</td>
                                     <td>{{$cliente->numero}}</td>
                                     <td>
-                                        <a href="clientes/{{$cliente->id}}/editar" class="btn btn btn-outline-primary  btn-sm">Editar</a>
-                                        <button class="btn btn-outline-primary btn-sm">Excluir</button>
+                                        <a href="clientes/{{$cliente->id}}/editar" class="btn btn-outline-primary btn-sm">Editar</a>
+                                        {!! Form::open(['method'=>'DELETE','url'=>'/clientes/'.$cliente->id, 'style'=>'display:inline;']) !!}
+                                        <button type="submit" class="btn btn-outline-primary btn-sm">Excluir</button>
+                                        {!! Form::close() !!}
                                     </td>
                                 </tr>
                             @endforeach
